@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = 9000;
+const PORT = process.env.PORT;
 
 app.get("/",(request, response)=>{
     response.send("hello, 🌍20000")
@@ -91,7 +91,7 @@ async function createConnection(){
 }
 const client = await createConnection();
 
-app.use(express.json());
+app.use(express.json()); //middleWare
 
 
     //GET MOVIE WITH FILTERS IN REQUEST
